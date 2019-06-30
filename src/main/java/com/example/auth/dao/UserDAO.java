@@ -1,9 +1,7 @@
 package com.example.auth.dao;
 
 import com.example.auth.entity.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,5 +13,8 @@ public interface UserDAO {
     @Insert("INSERT INTO t_user(username, password, role_id) VALUES(#{username}, #{password}, #{roleId} )")
     @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
     int save(User user);
+
+    @Select("select * from t_user where username=#{username} and password=#{password}")
+    User selectByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
 }
