@@ -23,7 +23,7 @@ public class AuthController {
     public String login(String username, String password, HttpServletRequest request) {
         User user = authService.login(username, password);
         if (user == null) {
-            return "redirect:loginPage.html";
+            return "redirect:index.html";
         }
         HttpSession session = request.getSession();
         session.setAttribute("user", user);

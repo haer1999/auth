@@ -28,7 +28,7 @@ public class SessionConfig implements WebMvcConfigurer {
                                  Object handler) throws Exception {
             HttpSession session = request.getSession(false);
             if (session == null) {
-                response.sendRedirect("/loginPage.html");
+                response.sendRedirect("/index.html");
                 return false;
             }
             return true;
@@ -39,12 +39,10 @@ public class SessionConfig implements WebMvcConfigurer {
         InterceptorRegistration addInterceptor = registry.addInterceptor(getSessionInterceptor());
 
         // 拦截配置
-        addInterceptor.addPathPatterns("/**");
-
-        // 排除配置
-        addInterceptor.excludePathPatterns("/loginPage**");
-        addInterceptor.excludePathPatterns("/login**");
-        addInterceptor.excludePathPatterns("/img/**");
+        addInterceptor.addPathPatterns("/**")
+                .excludePathPatterns("/index.html")
+                .excludePathPatterns("/login");
+//                .excludePathPatterns("/img/**");
 
     }
 
