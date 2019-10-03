@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>layout 后台大布局 - Layui</title>
-    <link rel="stylesheet" href="/layui/css/layui.css">
+    <!--<meta charset="utf-8">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+    <head th:include="layout :: htmlhead" th:with="title='后台管理'">
+    <!--<title>layout 后台大布局 - Layui</title>-->
+    <!--<link rel="stylesheet" href="/layui/css/layui.css">-->
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -76,13 +77,7 @@
         © layui.com - 底部固定区域
     </div>
 </div>
-<script src="/layui/layui.js"></script>
-<script>
-    //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
-
-    });
-</script>
+<!--<script src="/layui/layui.js"></script>-->
+<script type="text/javascript" src="/js/home.js"></script>
 </body>
 </html>

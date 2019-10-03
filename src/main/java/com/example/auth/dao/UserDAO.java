@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface UserDAO {
 
-    @Insert("INSERT INTO t_user(username, password, role_id) VALUES(#{username}, #{password}, #{roleId} )")
+    @Insert("INSERT INTO user(username, password, role_id) VALUES(#{username}, #{password}, #{roleId} )")
     @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
     int save(User user);
 
-    @Select("select * from t_user where username=#{username} and password=#{password}")
+    @Select("select * from user where username=#{username} and password=#{password}")
     User selectByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
 }

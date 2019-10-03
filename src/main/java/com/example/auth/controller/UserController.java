@@ -1,13 +1,9 @@
 package com.example.auth.controller;
 
-import com.example.auth.entity.User;
 import com.example.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * created by cxming on 2019/6/5
@@ -29,6 +25,11 @@ public class UserController {
     @GetMapping("/home")
     public String home() {
         return "home";
+    }
+
+    @GetMapping("/userList")
+    public String toUserList() {
+        return "/auth/userList";
     }
 
 }
